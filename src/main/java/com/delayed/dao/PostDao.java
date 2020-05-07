@@ -12,7 +12,7 @@ public interface PostDao extends ConnectionDatabase<PostModel> {
 	 * @param id
 	 * @return
 	 */
-	PostModel findOne(Long id);
+	PostModel findOne(Integer id);
 
 	/**
 	 * Insert record into database
@@ -20,7 +20,7 @@ public interface PostDao extends ConnectionDatabase<PostModel> {
 	 * @param post
 	 * @return
 	 */
-	Long save(PostModel post);
+	Integer save(PostModel post);
 
 	/**
 	 * Find all record

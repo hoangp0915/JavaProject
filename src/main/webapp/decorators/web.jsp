@@ -4,13 +4,15 @@
 <html>
 <head>
     <title><dec:title default="Trang chủ" /></title>
-
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <!-- css -->
     <link href="<c:url value='/assets/web/css/style.css' />" rel="stylesheet" type="text/css" media="all"/>
     <link href="<c:url value='/assets/web/css/nucleo-icons.css' />" rel="stylesheet" type="text/css" media="all"/>
     <link href="<c:url value='/assets/web/css/nucleo-svg.css' />" rel="stylesheet" type="text/css" media="all"/>
     <link href="<c:url value='/assets/web/css/font-awesome.css' />" rel="stylesheet" type="text/css" media="all"/>
     <link href="<c:url value='/assets/web/css/argon-design-system.css?v=1.2.0' />" rel="stylesheet" type="text/css" media="all"/>
+	<script type="text/javascript" src="<c:url value='/assets/vuejs/vue.min.js' />"></script>
+	<script type="text/javascript" src="<c:url value='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js' />"></script>
 </head>
 <body>
 	<!-- header -->
@@ -25,11 +27,11 @@
 	<%@ include file="/common/web/footer.jsp" %>
 	<!-- footer -->
 	
-	<script type="text/javascript" src="<c:url value='/assets/web/js/core/jquery.min.js' />"></script>
+	<!-- <script type="text/javascript" src="<c:url value='/assets/web/js/core/jquery.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/assets/web/js/core/popper.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/assets/web/js/core/bootstrap.min.js' />"></script>
     <script type="text/javascript" src="<c:url value='/assets/web/js/plugins/perfect-scrollbar.jquery.min.js' />"></script>
-        <script type="text/javascript" src="<c:url value='/assets/web/js/argon-design-system.min.js?v=1.2.0' />"></script>
+        <script type="text/javascript" src="<c:url value='/assets/web/js/argon-design-system.min.js?v=1.2.0' />"></script> -->
 	
 </body>
 </html>

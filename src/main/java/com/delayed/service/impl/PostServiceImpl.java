@@ -22,7 +22,7 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public PostModel save(PostModel post) {
 		post.setCreated(new Timestamp(System.currentTimeMillis()));
-		Long id = postDao.save(post);
+		Integer id = postDao.save(post);
 		return postDao.findOne(id);
 	}
 

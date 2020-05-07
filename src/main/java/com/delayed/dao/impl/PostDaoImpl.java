@@ -14,7 +14,7 @@ public class PostDaoImpl extends ConnectionImpl<PostModel> implements PostDao {
 	 * @see com.delayed.dao.PostDao#save(com.delayed.model.PostModel)
 	 */
 	@Override
-	public Long save(PostModel post) {
+	public Integer save(PostModel post) {
 		StringBuilder sql = new StringBuilder("INSERT INTO post (title, decription,");
 		sql.append("content,created, created_by)");
 		sql.append(" VALUES(?, ?, ?, ?, ?)");
@@ -29,7 +29,6 @@ public class PostDaoImpl extends ConnectionImpl<PostModel> implements PostDao {
 	 */
 	@Override
 	public List<PostModel> findAll() {
-		System.out.print("Post DAO Impl");
 		String sql = "SELECT * FROM post";
 		return query(sql, new PostMapper());
 	}
@@ -40,7 +39,7 @@ public class PostDaoImpl extends ConnectionImpl<PostModel> implements PostDao {
 	 * @see com.delayed.dao.PostDao#findOne(java.lang.Long)
 	 */
 	@Override
-	public PostModel findOne(Long id) {
+	public PostModel findOne(Integer id) {
 		if (id != null) {
 			String sql = "SELECT * FROM post WHERE id = ?";
 			List<PostModel> news = query(sql, new PostMapper(), id);

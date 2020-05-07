@@ -1139,9 +1139,9 @@ h1, h2, h3, h4, h5,
     font-size: 30px;
     line-height: 1;
     color: #ccc; }
-  .trend-entry .trend-contents h2 {
-    font-size: 18px; }
-    .trend-entry .trend-contents h2 a {
+  .trend-entry .trend-contents h4 {
+    font-size: 14px !important; }
+    .trend-entry .trend-contents h4 a {
       color: #000; }
 
 .caption {

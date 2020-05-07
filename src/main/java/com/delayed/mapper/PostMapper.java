@@ -11,10 +11,13 @@ public class PostMapper implements RowMapper<PostModel> {
 	public PostModel mapRow(ResultSet rs) {
 		try {
 			PostModel news = new PostModel();
-			news.setId(rs.getLong("id"));
+			news.setId(rs.getInt("id"));
 			news.setTitle(rs.getString("title"));
 			news.setContent(rs.getString("content"));
 			news.setDescription(rs.getString("description"));
+			news.setThumbnail(rs.getString("thumbnail"));
+			news.setCategoryId(rs.getInt("category_id"));
+			news.setSource(rs.getString("source"));
 			news.setCreated(rs.getTimestamp("created"));
 			news.setCreatedBy(rs.getString("created_by"));
 			if (rs.getTimestamp("updated") != null) {

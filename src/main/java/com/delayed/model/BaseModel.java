@@ -3,7 +3,7 @@ package com.delayed.model;
 import java.sql.Timestamp;
 
 public class BaseModel<T> {
-	private Long id;
+	private T id;
 	private Timestamp created;
 	private Timestamp updated;
 	private String createdBy;
@@ -17,14 +17,14 @@ public class BaseModel<T> {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public T getId() {
 		return id;
 	}
 	/**
 	 * the id to set
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(T id) {
 		this.id = id;
 	}
 	/**

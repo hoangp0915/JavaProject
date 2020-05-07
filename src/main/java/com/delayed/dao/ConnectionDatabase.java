@@ -33,7 +33,7 @@ public interface ConnectionDatabase<T> {
 	 * @param parameters
 	 * @return
 	 */
-	Long insert(String sql, Object... parameters);
+	Integer insert(String sql, Object... parameters);
 
 	/**
 	 * Count
