@@ -2,7 +2,7 @@
  <!-- Navbar -->
   <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom" style="    background: linear-gradient(150deg, #281483 15%, #8f6ed5 70%, #d782d9 94%);">
     <div class="container">
-      <a class="navbar-brand mr-lg-5" href="./index.html">
+      <a class="navbar-brand mr-lg-5" href="<c:url value="/home"/>">
         <img src="./assets/img/brand/white.png">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global"
@@ -13,7 +13,7 @@
         <div class="navbar-collapse-header">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="./index.html">
+              <a href="<c:url value="/home"/>">
                 <img src="./assets/img/brand/blue.png">
               </a>
             </div>

@@ -62,4 +62,27 @@ public class PostServiceImpl implements PostService {
 		postDao.deleteByIds(ids);
 	}
 
+	/**
+	 * Find record by Id
+	 * {@inheritDoc}
+	 * @see com.delayed.service.PostService#findById(java.lang.Integer)
+	 */
+	@Override
+	public PostModel findById(Integer id) {
+		PostModel find = postDao.findOne(id);
+		return find;
+	}
+
+	@Override
+	public List<PostModel> findRecordLimit(Integer limit) {
+		List<PostModel> list = postDao.findRecordLimit(limit);
+		return list;
+	}
+
+	@Override
+	public List<PostModel> listRecord(Integer page, Integer size) {
+		List<PostModel> list = postDao.listRecord(page, size);
+		return list;
+	}
+
 }

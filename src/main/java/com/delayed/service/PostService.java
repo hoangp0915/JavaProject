@@ -35,4 +35,26 @@ public interface PostService {
 	 * @param ids
 	 */
 	void deleteByIds(String ids);
-}
+	
+	/**
+	 * Find post by id
+	 * @param id
+	 * @return
+	 */
+	PostModel findById(Integer id);
+	
+	/**
+	 * find Record width Limit 
+	 * @param limit
+	 * @return
+	 */
+	List<PostModel> findRecordLimit(Integer limit); 
+	
+	/**
+	 * list record
+	 * @param page
+	 * @param size
+	 * @return
+	 */
+	List<PostModel> listRecord(Integer page, Integer size); 
+} 

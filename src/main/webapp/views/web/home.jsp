@@ -10,8 +10,8 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="post-entry-1">
-                  <a href="post-single.html"><img src="${views[0].thumbnail}" alt="Image" class="img-fluid"></a>
-                  <h2><a href="blog-single.html">${views[0].title}</a></h2>
+                  <a href="<c:url value="/post?id=${views[0].id}"/>"><img src="${views[0].thumbnail}" alt="Image" class="img-fluid"></a>
+                  <h2><a href="<c:url value="/post?id=${views[0].id}"/>">${views[0].title}</a></h2>
                   <p>${views[0].description}</p>
                   <div class="post-meta">
                     <span class="d-block"><a href="#">${views[0].createdBy}</a> in <a href="#">News</a></span>
@@ -25,7 +25,7 @@
                 <div class="post-entry-2 d-flex ${loop.index == 0 ? 'bg-light' : ''}">
                   <div class="thumbnail" style="background-image: url('${item.thumbnail}')"></div>
                   <div class="contents">
-                    <h2><a href="blog-single.html">${item.title}</a></h2>
+                    <h2><a href="<c:url value="/post?id=${views[0].id}"/>">${item.title}</a></h2>
                     <div class="post-meta">
                       <span class="d-block"><a href="#">${item.createdBy}</a> in <a href="#">News</a></span>
                       <span class="date-read">${item.created} <span class="mx-1">&bullet;</span> 3 min read <span
@@ -55,7 +55,7 @@
               <div class="thumbnail order-md-1 pl-0"
                 v-bind:style="{ 'background-image': 'url(' + post.thumbnail + ')' }"></div>
               <div class="contents order-md-2 ">
-                <h2><a href="blog-single.html">{{post.title}}</a></h2>
+                <h2><a href="<c:url value="/post?id={{post.id}}"/>">{{post.title}}</a></h2>
                 <p class="mb-3">{{post.description}}</p>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">{{post.createdBy}}</a> in <a href="#">News</a></span>
@@ -92,7 +92,7 @@
             <div class="number align-self-start">0${loop.index + 1}</div>
             <!-- ${loop.index} -->
             <div class="trend-contents">
-              <h4><a href="blog-single.html">${item.title}</a></h4>
+              <h4><a href="<c:url value="/post?id=${item.id}"/>">${item.title}</a></h4>
               <div class="post-meta">
                 <span class="d-block"><a href="#">${item.createdBy}</a> in <a href="#">News</a></span>
                 <span class="date-read">${item.created} <span class="mx-1">&bullet;</span> 3 min read <span
@@ -114,12 +114,16 @@
     el: "#section-components",
     data: {
       loading: false,
-      data: []
+      data: [],
+      pageable: {
+    	  page: 1,
+    	  size: 5
+      }
     },
     mounted: function () {
       this.loading = true;
       axios
-        .get('${pageContext.request.contextPath}/api/home')
+        .get('${pageContext.request.contextPath}/api/home?page=' + this.pageable.page + '&size=' + this.pageable.size)
         .then(response => {
           this.data = response.data
         })
@@ -131,8 +135,9 @@
     methods: {
       getPost: function () {
         this.loading = true;
+        this.pageable.page++;
         axios
-          .get('${pageContext.request.contextPath}/api/home')
+          .get('${pageContext.request.contextPath}/api/home?page=' + this.pageable.page + '&size=' + this.pageable.size)
           .then(response => {
             var result = response.data
             console.log("result", result)

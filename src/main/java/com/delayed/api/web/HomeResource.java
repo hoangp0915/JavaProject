@@ -30,7 +30,7 @@ public class HomeResource extends HttpServlet {
 
 	@Inject
 	private CategoryService catService;
-	
+
 	/**
 	 * Do get API {@inheritDoc}
 	 * 
@@ -42,10 +42,11 @@ public class HomeResource extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		request.setCharacterEncoding("UTF-8");
-		List<PostModel> post = postService.findAll();
-		System.out.println(post.get(0).getTitle());
-//		List<CategoryModel> cat = catService.findAll();
+		String page = request.getParameter("page");
+		String size = request.getParameter("size");
+//		List<PostModel> post = postService.findAll();
+		List<PostModel> post = postService.listRecord(Integer.parseInt(page),
+				Integer.parseInt(size));
 		out.print(this.gson.toJson(post));
 		out.flush();
 	}

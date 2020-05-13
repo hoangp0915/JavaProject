@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.delayed.controller.web;
 
 import java.io.IOException;
@@ -14,22 +17,25 @@ import javax.servlet.http.HttpServletResponse;
 import com.delayed.model.PostModel;
 import com.delayed.service.PostService;
 
-@WebServlet(urlPatterns = { "/home"})
-public class HomeController extends HttpServlet {
-
-	private static final long serialVersionUID = 8685190857914407353L;
-
+/**
+ * @author hoang
+ *
+ */
+@WebServlet(urlPatterns = { "/post"})
+public class PostDetailController extends HttpServlet {
+	
+	private static final long serialVersionUID = -3533249402463730091L;
+	
 	@Inject
 	private PostService postService;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("views/web/home.jsp");
-		List<PostModel> views = postService.findRecordLimit(4);
+		RequestDispatcher rd = request.getRequestDispatcher("views/web/post-detail.jsp");
+		List<PostModel> views = postService.findAll();
 		request.setAttribute("views", views);
+		String id = request.getParameter("id");
+		PostModel postDetail = postService.findById(Integer.parseInt(id));
+		request.setAttribute("postDetail", postDetail);
 		rd.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
 	}
 }

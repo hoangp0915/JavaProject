@@ -73,4 +73,16 @@ public class PostDaoImpl extends ConnectionImpl<PostModel> implements PostDao {
 		update(sql, ids);
 	}
 
+	@Override
+	public List<PostModel> findRecordLimit(Integer limit) {
+		String sql = "SELECT * FROM post LIMIT " + limit;
+		return query(sql, new PostMapper());
+	}
+
+	@Override
+	public List<PostModel> listRecord(Integer page, Integer size) {
+		String sql = "SELECT * FROM post LIMIT " + page + "," + size;
+		return query(sql, new PostMapper());
+	}
+
 }
